@@ -5,6 +5,19 @@
     <meta charset="utf-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDIVWvVlRh45VLYILoFcARByGjMBMuNxgY",
+        authDomain: "heapexchange-d68f8.firebaseapp.com",
+        databaseURL: "https://heapexchange-d68f8.firebaseio.com",
+        projectId: "heapexchange-d68f8",
+        storageBucket: "heapexchange-d68f8.appspot.com",
+        messagingSenderId: "605368222798"
+      };
+      firebase.initializeApp(config);
+   </script>
 </head>
 
 <body class="login">
@@ -13,7 +26,7 @@
     <p>Login to get started</p>
     <div>
         <input type="text" size="50" id="loginEmail" placeholder=" Email Address">
-        <input type="text" size="50" id="loginPassword" placeholder=" Password">
+        <input type="password" size="50" id="loginPassword" placeholder=" Password">
         <button onclick="checkLogin()">Login</button>
         <p>Don't have an account, click<a href="register.html"> here </a>to register</p>
     </div>
@@ -21,10 +34,7 @@
 <script>
     var uemail = "";
     var upassword = "";
-    /*
-    var rootRef = firebase.database().ref();
-    var keyRef = firebase.database().ref(rootRef);
-    */
+   
     function checkLogin (onclick) {
         uemail = document.getElementById("loginEmail").value;
         upassword = document.getElementById("loginPassword").value;
@@ -33,26 +43,7 @@
                 console.log(error.message);
             });
         
-        /*uemail = document.getElementById("loginEmail").value;
-        uemail = uemail.toLowerCase();
-        upassword = document.getElementById("loginPassword").value;
-        upassword = upassword.toLowerCase();
         
-        keyRef.on('value', snapshot => {
-            snapshot.forEach( childSnapshot => {
-                var email = childSnapshot.val().email;
-                email = email.toLowerCase();
-                var password = childSnapshot.val().password;
-                password = password.toLowerCase();
-
-                if (!(uemail === email)){
-                    alert("Sorry that email is not found in our database")
-                }
-                
-            });
-        });*/
-
-
     }
 </script>
 
